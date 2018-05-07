@@ -1,15 +1,68 @@
-<!doctype html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
-<html lang="en">
 <head>
-  <meta charset="utf-8">
-
-  <title>Clay's Homepage</title>
-  <meta name="description" content="HTML5 Template">
-
+<style>
+body{
+	background-color:black;
+    background-image:url("http://i.kinja-img.com/gawker-media/image/upload/uay2ismb1tiz5zoubrjw.jpg");
+    background-repeat:no-repeat;
+    background-position:center top; 
+	overflow:hidden; 
+}
+.finishline {
+    position: absolute;
+    right: -12pc;
+    top: 12pc;
+</style>
+<script>
+var randleng;
+function resetRace(){
+    clearInterval(myVar1);
+window.location.reload();
+}
+    var pos1 = 0;
+    var pos2 = 0;
+function startRace() {
+    var myVar1 = setInterval(startRace, 1000);
+    var ranNum = Math.floor(Math.random()*2);
+    randleng = Math.floor(Math.random()*5);
+  if(ranNum == 0){
+    var leng1 = pos1 + randleng;
+    pos1+=randleng;
+    document.getElementById("smallmouth").style.left = leng1 + "px";
+    } 
+    else if (ranNum == 1){
+    var leng2 = pos2 + randleng;
+    pos2+=randleng;
+    document.getElementById("largemouth").style.left = leng2 + "px";
+  }
+if (pos1 == 1000)
+  {
+    alert("Smallmouth Bass is the winner!");
+      clearInterval(myVar1);
+      location.reload();
+    stopHelmets();
+  }
+  else if (pos2 == 1000)
+  {
+    alert("Largemouth Bass is the winner!");
+      clearInterval(myVar1);
+      location.reload();
+    stopHelmets();
+  }
+  function stopHelmets(){
+  clearInterval(myVar1);
+  }
+}
+</script>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>The Great Bass Race!</title>
 </head>
-
 <body>
-<p>Sample text</p>
+<img style="width:150px; height:inherit; position:absolute; top:400px;" src="http://www.fontanaguides.com/images/smallmouthbass_mount-u2449.png?crc=443631063" id="smallmouth"/>
+<img style="width:150px; height:inherit; position:absolute; top:600px;" src="http://thumbs.gocdn.us/383_2582.zt.360.190.png" id="largemouth"/>
+<img src="http://www.clipartkid.com/images/21/traffic-semaphore-red-light-clip-art-at-clker-com-vector-clip-art-FxaHvl-clipart.png" id="startButton" onclick="startRace()"  onmouseup="document.getElementById('startButton').src='http://www.clipartkid.com/images/44/traffic-semaphore-green-light-clip-art-at-clker-com-vector-clip-art-sNG7vW-clipart.png'" style="width:200px; height:inherit; cursor:pointer;" />
+<img src="http://www.pngmart.com/files/3/Finish-Line-PNG-Transparent-Image.png" class="finishline">
 </body>
 </html>
